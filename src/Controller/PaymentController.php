@@ -17,17 +17,19 @@ class PaymentController extends AppController
 {
 
 
-    public function add($id)
+    public function add()
     {
         $this->Status->isUser();
+        // debug( $this->request->getAttribute('identity')->getIdentifier());die();
         $payment = $this->Payment->newEmptyEntity();
-        $amount = $this->Payment->Users->findById($id)->firstOrFail()->package;
+        $amount = $this->Payment->Users->find('all')->where(['caruser_id'=>$this->request->getAttribute('identity')->getIdentifier()])->order(['created'=>'DESC'])->first()->package;
         // debug($this->Payment->Users->findById($id)->firstOrFail());die();
         // debug($this->request->getData());die();
         if ($this->request->is('post')) {
             $payment = $this->Payment->patchEntity($payment, $this->request->getData());
-            // $payment->user_id = $id;
-            $payment->amount = $this->Payment->Users->findById($id)->firstOrFail()->package;
+            $payment->user_id = $this->request->getAttribute('identity')->getIdentifier();
+            $payment->amount = $amount;
+            // debug($payment);dd();
             // debug($this->Payment->Users->findById($id)->firstOrFail()->package);die(); 
             if ($this->Payment->save($payment)) {
                 $this->Flash->success(__('The payment is successful.'));
@@ -43,7 +45,8 @@ class PaymentController extends AppController
     public function congrats($id)
     {
         $this->Status->isUser();
-        $email = $this->Payment->Users->findById($id)->contain(['Payment', 'Carinfo'])->firstOrFail();
+        $email = $this->Payment->Users->find('all')->where(['caruser_id'=>$this->request->getAttribute('identity')->getIdentifier()])->order(['created'=>'DESC'])->first();
+
 
         $message = "Dear " . $email->name . ",\n"
             . "Thank you for Booking. Your details are mentioned below:-\n"
@@ -64,7 +67,7 @@ class PaymentController extends AppController
 
         $mailer = new Mailer();
         $mailer->setTransport('mail');
-        $mailer->setFrom(['tqmassociate@gmail.com' => 'Royalty Exotic '])
+        $mailer->setFrom(['skshitij47@gmail.com' => 'Royalty Exotic '])
             ->setTo($email->email)
             ->setSubject('Booking Confirmation for your rental car.')
             ->deliver($message);

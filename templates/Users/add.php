@@ -159,6 +159,7 @@
                                 <div class="form-group row"><label class="col-lg-2 col-form-label">Package</label>
                                     <div class="col-lg-10"> <?php echo $this->Form->select('package',[
                                                                 ['value'=>$package->four,'text'=>'4-Hours: $'.$package->four],
+                     
                                                                 ['value'=>$package->eight,'text'=>'8-Hours: $'.$package->eight],
                                                                 ['value'=>$package->twentyfour,'text'=>'24-Hours: $'.$package->twentyfour],
                                                                 ],['class'=>'form-control','label'=>false])."<br>";?></div>
@@ -194,7 +195,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-4 col-sm-offset-2">
                                         
-                                         <?= $this->Form->button(__('Submit')) ?> 
+                                         <?= $this->Form->button(__('Submit'),['class'=>'btn btn-sm btn-primary float-left']) ?> 
 
 
                                        

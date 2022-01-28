@@ -42,7 +42,9 @@ class CarusersTable extends Table
         $this->setPrimaryKey('id');
         $this->hasOne('UserProfile', [
             'foreignKey' => 'caruser_id',
+            
         ]);
+        $this->hasMany('Users');
     }
 
     /**

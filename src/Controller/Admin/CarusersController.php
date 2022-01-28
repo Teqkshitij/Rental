@@ -44,6 +44,7 @@ class CarusersController extends AppController
         if ($result->isValid()) {
             $this->request->getSession()->write(['identity' => $this->request->getAttribute('identity')]);
             $this->redirect($this->Status->checkStatus());
+                
         }else if ($this->request->is('post') && !$result->isValid()) {
             $this->Flash->error(__('Invalid Username or Password.'));
         }

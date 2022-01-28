@@ -19,10 +19,33 @@ class CarinfoController extends AppController
     public function index()
     {
         $this->Status->isUser();
-        $carinfo = $this->paginate($this->Carinfo);
+
+        $key=$this->request->getQuery('key');
+        // exit($key);
+    if($key){
+        $query=$this->Carinfo->find('all')->where(['car_name like'=>'%'.$key.'%']);
+
+    }
+    else{
+        $query=$this->Carinfo;
+    }
+        $carinfo = $this->paginate($query);
 
         $this->set(compact('carinfo'));
     }
+
+    // public function search(){
+    //     $this->request->allowMethod('ajax');
+
+    //     $keyword =$this->request->query('keyword');
+
+    //     $query= $this->Carinfo->find('all',[
+    //         'conditions'=>['car_name LIKE'=>'%'.$keyword.'%'],
+
+    //     ]);
+    //     $this->set('carinfo', $this->paginate($query));
+    //     $this->set('_serialize',['carinfo']);
+    // }
 
     /**
      * View method

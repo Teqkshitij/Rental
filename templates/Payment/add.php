@@ -32,7 +32,7 @@
                         <img alt="image" class="rounded-circle" src="/cars/img/profile_small.jpg"/>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="block m-t-xs font-bold">David Williams</span>
-                            e
+                            
                         </a>
                         
                     </div>
@@ -71,10 +71,10 @@
         </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2><b>User Info</b></h2>
+                    <h2><b>Payment Info</b></h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="index.html">User</a>
+                            <a href="index.html">Payment</a>
                         </li>
                         <li class="breadcrumb-item">
                             <a>Info</a>
@@ -86,13 +86,13 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>E-commerce payments</h2>
+                <h2>Car Rental payments</h2>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                        <a href="index.html">Home</a>
+                    <!-- <li class="breadcrumb-item"> -->
+                        <!-- <a href="">Home</a> -->
                     </li>
                     <li class="breadcrumb-item">
-                        <a>E-commerce payments</a>
+                        <a>Car Rental payments</a>
                     </li>
                     <li class="breadcrumb-item active">
                         <strong>Payments</strong>

@@ -19,6 +19,7 @@ class UsersController extends AppController
      */
     public function index()
     {
+        $this->Status->isUser();
         $users = $this->paginate($this->Users, ['contain' => 'Carinfo']);
 
 
@@ -57,6 +58,7 @@ class UsersController extends AppController
         if ($this->request->is('post')) {
 
             $user = $this->Users->patchEntity($user, $this->request->getData());
+            $user->caruser_id=$this->request->getAttribute('identity')->getIdentifier();
             $user->carinfo_id = $id;
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Proceed to Payment.'));

@@ -25,7 +25,7 @@ class StatusComponent extends Component
             return true;
         }else {
             $this->getController()->Flash->error(__('You Are Not Authorised To Visit That Page'));
-            $this->getController()->redirect(['prefix' => 'Admin', 'controller' => 'Users', 'action' => 'index']);
+            $this->getController()->redirect(['prefix' => false, 'controller' => 'Users', 'action' => 'index']);
         }
     }
 
@@ -54,7 +54,7 @@ class StatusComponent extends Component
                     return ['prefix' => false, 'controller' => 'Carinfo', 'action' => 'index'];
                 }else {
                     $this->getController()->Flash->error(__('User Cannot Login.'));
-                    return ['prefix' => 'Admin', 'controller' => 'Carusers', 'action' => 'logout'];
+                    return ['prefix' => false, 'controller' => 'Carusers', 'action' => 'logout'];
                 }
             }
         }

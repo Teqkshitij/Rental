@@ -32,7 +32,7 @@
                         <div class="dropdown profile-element">
                             <img alt="image" class="rounded-circle" src="/cars/img/profile_small.jpg" />
                             <span class="block m-t-xs font-bold">Royalty Exotic Cars</span>
-                            <?= $this->Html->link(__('Logout'), ['controller'=>'Carusers','action' => 'logout'], ['class' => 'btn btn-xs btn-outline btn-primary']) ?><i class="fa fa-long-arrow-right"></i>
+                            <?= $this->Html->link(__('Logout'), ['controller' => 'Carusers', 'action' => 'logout'], ['class' => 'btn btn-xs btn-outline btn-primary']) ?><i class="fa fa-long-arrow-right"></i>
 
                         </div>
                         <div class="logo-element">
@@ -60,60 +60,75 @@
             </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>E-commerce grid</h2>
+
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="index.html">Home</a>
+
                         </li>
-                        <li class="breadcrumb-item">
-                            <a>E-commerce</a>
-                        </li>
-                        <li class="breadcrumb-item active">
-                            <strong>Products grid</strong>
-                        </li>
+                        <div class="row">
+                            <aside class="column">
+                                <div class="side-nav">
+
+
+                                    <div class="column-responsive column-80">
+                                        <div class="carinfo form content">
+                                            <?= $this->Form->create(null,['type'=>'get']) ?>
+
+
+                                            <?php echo $this->Form->control('key',['label'=>'Search','value'=>$this->request->getQuery('key'),'class' => 'form-control']); ?>
+
+
                     </ol>
+                    <?php echo $this->Form->Submit('GO', ['class' => 'btn btn-primary']); ?>
+
+
                 </div>
                 <div class="col-lg-2">
 
                 </div>
             </div>
+            <!-- <div class="table-content"> -->
 
-            <div class="wrapper wrapper-content animated fadeInRight">
-                <div class="row">
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="row">
 
-                    <?php foreach ($carinfo as $carinfo) : ?>
+                        <?php foreach ($carinfo as $carinfo) : ?>
 
 
-                        <div class="col-md-3">
-                            <div class="ibox">
-                                <div class="ibox-content product-box">
+                            <div class="col-md-3">
+                                <div class="ibox">
+                                    <div class="ibox-content product-box">
 
-                                    <div class="product-imitation">
-                                        <td><a href='<?php echo $this->Url->build(['controller' => 'Carinfo', 'action' => 'view', $carinfo->id]) ?> '>
-                                                <?= $this->Html->image($carinfo->car_image, ['class' => 'img-preview']) ?></a></td>
+                                        <div class="product-imitation">
+                                            <td><a href='<?php echo $this->Url->build(['controller' => 'Carinfo', 'action' => 'view', $carinfo->id]) ?> '>
+                                                    <?= $this->Html->image($carinfo->car_image, ['class' => 'img-preview']) ?></a></td>
 
-                                    </div>
-                                    <div class="product-desc">
-                                        <h1><b><?= h($carinfo->car_name) ?></b></h1>
+                                        </div>
+                                        <div class="product-desc">
+                                            <h1><b><?= h($carinfo->car_name) ?></b></h1>
 
-                                        <div class="m-t text-righ">
+                                            <div class="m-t text-righ">
 
-                                            <?= $this->Html->link(__('Click to book'), ['action' => 'view', $carinfo->id], ['class' => 'btn btn-xs btn-outline btn-primary']) ?><i class="fa fa-long-arrow-right"></i>
+                                                <?= $this->Html->link(__('Click to book'), ['action' => 'view', $carinfo->id], ['class' => 'btn btn-xs btn-outline btn-primary']) ?><i class="fa fa-long-arrow-right"></i>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
 
+                    </div>
+
+                    
                 </div>
 
 
 
 
-            </div>
+
+            <!-- </div> -->
             <div class="footer">
                 <div class="float-right">
                     10GB of <strong>250GB</strong> Free.
@@ -126,9 +141,33 @@
         </div>
     </div>
 
+    <!-- <script>
+        $('documnet').ready(function() {
+            $('#search').keyup(function() {
+                var searchkey = $(this).val();
+                searchCars(searchkey);
+            });
 
+            function searchCars(keyword) {
+                var data = keyword;
+                $.ajax
+                    method: 'get',
+                    url: " echo $this->Url->build(['prefix' => false, 'controller' => 'Carinfo', 'action' => 'search']); ",
+                    data: {
+                        keyword: data
+                    },
+                    success: function(response) {
+                        $('.table-content').html(response);
+                    }
+                });
+            };
+        });
+    </script> -->
 
     <!-- Mainly scripts -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script> -->
+
+
     <script src="/cars/js/jquery-3.1.1.min.js"></script>
     <script src="/cars/js/popper.min.js"></script>
     <script src="/cars/js/bootstrap.js"></script>

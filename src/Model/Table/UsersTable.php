@@ -43,8 +43,10 @@ class UsersTable extends Table
         $this->setTable('users');
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
+        
 
         $this->belongsTo('Carinfo');
+        $this->belongsTo('Carusers');
         $this->hasOne('Payment');
     }
 

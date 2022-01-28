@@ -26,7 +26,7 @@ class UsersController extends AppController
         $users = $this->paginate($this->Users, ['contain' => 'Carinfo']);
 
 
-        debug($users);die();
+        // debug($users);die();
 
         $this->set(compact('users'));
     }
@@ -117,5 +117,14 @@ class UsersController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function logout()
+    {
+        $result = $this->Authentication->getResult();
+        // regardless of POST or GET, redirect if user is logged in
+        if ($result->isValid()) {
+            $this->Authentication->logout();
+            return $this->redirect(['controller' => 'Carusers', 'action' => 'login']);
+        }
     }
 }

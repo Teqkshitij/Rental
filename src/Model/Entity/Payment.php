@@ -31,13 +31,8 @@ class Payment extends Entity
      * @var array
      */
     protected $_accessible = [
-        'user_id' => true,
-        'name' => true,
-        'card' => true,
-        'month' => true,
-        'year' => true,
-        'cvv' => true,
-        'amount' => true,
-        'user' => true,
+        '*' => true,
+        'id'=>false
+        
     ];
 }

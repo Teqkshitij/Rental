@@ -393,8 +393,8 @@ return [
             'mail'=> [
                     'host' => 'smtp.gmail.com',
                     'port' => 587,
-                    'username' =>'tqmassociate@gmail.com', 
-                    'password' =>'Tqm@2021',
+                    'username' =>'skshitij47@gmail.com', 
+                    'password' =>'zmrrgcfhivniwwex',
                     'tls' => true,
                     'className' => 'Smtp'
             ]
