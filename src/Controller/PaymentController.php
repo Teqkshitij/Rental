@@ -35,8 +35,9 @@ class PaymentController extends AppController
                 $this->Flash->success(__('The payment is successful.'));
 
                 return $this->redirect(['action' => 'congrats', $payment->user_id]);
+            }else{ 
+                $this->Flash->error(__('The payment could not be done. Please, try again.'));
             }
-            $this->Flash->error(__('The payment could not be done. Please, try again.'));
         }
         $payment->amount = $amount;
         $this->set(compact('payment'));
@@ -45,8 +46,7 @@ class PaymentController extends AppController
     public function congrats($id)
     {
         $this->Status->isUser();
-        $email = $this->Payment->Users->find('all')->where(['caruser_id'=>$this->request->getAttribute('identity')->getIdentifier()])->order(['created'=>'DESC'])->first();
-
+        $email = $this->Payment->Users->find('all')->contain(['Carinfo'])->where(['caruser_id'=>$this->request->getAttribute('identity')->getIdentifier()])->order(['created'=>'DESC'])->first();
 
         $message = "Dear " . $email->name . ",\n"
             . "Thank you for Booking. Your details are mentioned below:-\n"
@@ -67,7 +67,7 @@ class PaymentController extends AppController
 
         $mailer = new Mailer();
         $mailer->setTransport('mail');
-        $mailer->setFrom(['skshitij47@gmail.com' => 'Royalty Exotic '])
+        $mailer->setFrom(['skshitij47@gmail.com' => 'Royalty Exotic Cars '])
             ->setTo($email->email)
             ->setSubject('Booking Confirmation for your rental car.')
             ->deliver($message);

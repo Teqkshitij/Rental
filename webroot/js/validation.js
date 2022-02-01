@@ -34,6 +34,29 @@ $(document).ready(function(){
 	},
 });
 
+$("#add").validate({
+
+	rules:{
+		fname:'required',
+		lname:'required',
+		email:{required:true, email:true, emailval:true,},
+		contact:'required',
+		address:'required',
+		password:'required',
+		confirm_password:'required',
+
+	}, messages:{
+		fname: "<span style ='color: red; font-size= 14px'>Please select first name</span>",
+		lname: "<span style ='color: red; font-size= 14px'>Please select last name </span>",
+		email:"<span style ='color: red; font-size= 14px'>Please add email</span>",
+		contact: "<span style ='color: red; font-size= 14px'>Please add contact number</span>",
+		address: "<span style ='color: red; font-size= 14px'>Please fill address</span>",
+		password: "<span style ='color: red; font-size= 14px'>Please select password</span>",
+		confirm_password: "<span style ='color: red; font-size= 14px'>Please select confirm password type</span>",
+		
+	},
+});
+
 
 	$("#payment-form").validate({
     rules:{

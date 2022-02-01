@@ -154,6 +154,7 @@ class CarusersController extends AppController
             $this->redirect($this->Status->checkStatus());
         } else if ($this->request->is('post') && !$result->isValid()) {
             $this->Flash->error(__('Invalid Username or Password.'));
+            
         }
     }
 

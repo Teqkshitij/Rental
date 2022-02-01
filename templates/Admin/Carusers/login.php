@@ -49,10 +49,10 @@
                 </div>
                 
 
-    <?= $this->Form->submit(__('Login'), ['class' => 'btn btn-block btn-primary']); ?>
+    <?= $this->Form->submit(__('Login'), ['class' => 'btn btn-block btn-primary']); ?><hr>
     <?= $this->Form->end() ?><br><p>
      <?= $this->Html->link(__('User Login'), ['prefix'=>false,'controller'=>'Carusers','action' => 'login']) ?><br>
-     <?= $this->Html->link(__('Add User'), ['prefix'=>false,'controller'=>'Carusers','action' => 'add']) ?>
+    
 </p>
             </div>
           </div>
@@ -71,4 +71,5 @@
     <script src="js/mian.js"></script>
   </body>
 </html>
-  
+
+

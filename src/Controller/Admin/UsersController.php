@@ -26,9 +26,9 @@ class UsersController extends AppController
         $users = $this->paginate($this->Users, ['contain' => 'Carinfo']);
 
 
-        // debug($users);die();
-
+        
         $this->set(compact('users'));
+        // debug($users);die();
     }
 
     /**

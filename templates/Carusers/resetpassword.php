@@ -19,8 +19,10 @@
 
     <!--Custom styles-->
     <link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" href="/css/add.css">
+
 </head>
-<style>
+<!-- <style>
     .message-error{
         color:red;
     }
@@ -31,24 +33,24 @@
     width: 650px;
     background-color: rgba(0, 0, 0, 0.5) !important;
 }
-</style>
+</style> -->
 
 
 
 <body>
     <div class="container">
-        <div class="d-flex justify-content-center h-100">
+        <!-- <div class="d-flex justify-content-center h-100">   -->
             <div class="card">
                 <div class="users form">
                     <div class="card-header">
                         <?= $this->Flash->render() ?>
                         <h3 class="text-center">Reset Password</h3>
-                        <div class="d-flex justify-content-end social_icon">
+                        <!-- <div class="d-flex justify-content-end social_icon"> -->
                             <!-- <span><i class="fab fa-facebook-square"></i></span>
 					<span><i class="fab fa-google-plus-square"></i></span>
 					<span><i class="fab fa-twitter-square"></i></span> -->
                         </div>
-                        <?= $this->Form->create(null, ['id' => 'form', 'class' => 'form-control']) ?>
+                        <?= $this->Form->create(null, ['id' => 'form']) ?>
                     </div>
                     <div class="card-body">
 
@@ -58,7 +60,9 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
-                                <?= $this->Form->control('Enter Otp', ['name'=>'token','required' => false, 'class' => 'form-control']) ?>
+                                <!-- <?= $this->Form->control('Enter Otp', ['name'=>'token','required' => false, 'class' => 'form-control']) ?> -->
+                              <input id="token" name="token" placeholder="Enter OTP" class="form-control"  type="text">
+
                             </div>
 
 
@@ -67,7 +71,9 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
-                                <?= $this->Form->control('New password', ['name'=>'password','required' => false,'type'=>'password', 'class' => 'form-control']) ?>
+                                <!-- <?= $this->Form->control('New password', ['name'=>'password','required' => false,'type'=>'password', 'class' => 'form-control']) ?> -->
+                              <input id="password" name="password" placeholder="Enter new password" class="form-control"  type="password">
+
                             </div>
 
 
@@ -75,7 +81,9 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-user"></i></span>
 
-                                <?= $this->Form->control('confirm Password', ['name'=>'cpassword','required' => false, 'type'=>'password', 'class' => 'form-control']) ?>
+                                <!-- <?= $this->Form->control('confirm Password', ['name'=>'cpassword','required' => false, 'type'=>'password', 'class' => 'form-control']) ?> -->
+                              <input id="password" name="cpassword" placeholder="Confirm new password" class="form-control"  type="password">
+
                             </div>
 
 
@@ -90,7 +98,7 @@
 
                         <?= $this->Form->end() ?>
                     </div>
-                    <div class="card-footer">
+                    <!-- <div class="card-footer"> -->
                         <div class="d-flex justify-content-center links">
 
 

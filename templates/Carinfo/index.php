@@ -78,8 +78,8 @@
                                             <?php echo $this->Form->control('key',['label'=>'Search','value'=>$this->request->getQuery('key'),'class' => 'form-control']); ?>
 
 
-                    </ol>
-                    <?php echo $this->Form->Submit('GO', ['class' => 'btn btn-primary']); ?>
+                    </ol><br>
+                    <?php echo $this->Form->Submit('GO', ['class' => 'btn btn-primary ']); ?>
 
 
                 </div>

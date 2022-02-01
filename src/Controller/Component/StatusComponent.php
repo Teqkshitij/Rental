@@ -44,7 +44,7 @@ class StatusComponent extends Component
         }else if($user->status == 'active') {
             if($user->user_type == 'admin') {
                 if($prefix == 'Admin') {
-                    return ['prefix' => 'Admin', 'controller' => 'Users', 'action' => 'index'];
+                    return ['prefix' => 'Admin', 'controller' => 'Carinfo', 'action' => 'index'];
                 }else {
                     $this->getController()->Flash->error(__('Admin Cannot Login.'));
                     return ['prefix' => false, 'controller' => 'Carusers', 'action' => 'index'];

@@ -1,44 +1,92 @@
-<div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">User Form</h3>
-              </div>
-            
-               <?= $this->Form->create($caruser,['style'=>'width:270px', 'id'=>'adduser']) ?>
-                <div class="card-body">
-                  <div class="form-group">
-                    <?php echo $this->Form->control('user_profile.first_name',['class'=>'form-control']); ?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo $this->Form->control('user_profile.last_name',['class'=>'form-control']);?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo $this->Form->control('email',['class'=>'form-control']);?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo $this->Form->control('user_profile.contact',['class'=>'form-control']);?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo $this->Form->control('user_profile.address',['class'=>'form-control']);?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo $this->Form->control('password',['class'=>'form-control']);?>
-                  </div>
-                  <div class="form-group">
-                    <?php echo $this->Form->control('confirm_password',['type'=>'password','class'=>'form-control']);?>
-                  </div>
-                 
+<link rel="stylesheet" href="/css/add.css">
+
+
+
+
+<div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Register Today</h3>
+                        <p>Fill in the data below.</p>
+                        <?= $this->Form->create(null,['id'=>'add']) ?>
+                        <form class="requires-validation" novalidate>
+
+                            <div class="col-md-12">
+                               <input class="form-control" type="text" name="fname" placeholder="First Name" required>
+                               <!-- <div class="valid-feedback">Firstname field is valid!</div> -->
+                               <!-- <div class="invalid-feedback">Firstname field cannot be blank!</div> -->
+                            </div>
+
+
+                            <div class="col-md-12">
+                               <input class="form-control" type="text" name="lname" placeholder="Last Name" required>
+                               <!-- <div class="valid-feedback">Lastname field is valid!</div> -->
+                               <!-- <div class="invalid-feedback">Lastname field cannot be blank!</div> -->
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
+                                 <!-- <div class="valid-feedback">Email field is valid!</div> -->
+                                 <!-- <div class="invalid-feedback">Email field cannot be blank!</div> -->
+                            </div>
+
+                            <div class="col-md-12">
+                               <input class="form-control" type="text" name="contact" placeholder="Contact Number" required>
+                               <!-- <div class="valid-feedback">Contact field is valid!</div> -->
+                               <!-- <div class="invalid-feedback">Contact field cannot be blank!</div> -->
+                            </div>
+
+                            <div class="col-md-12">
+                               <input class="form-control" type="text" name="address" placeholder="Address" required>
+                               <!-- <div class="valid-feedback">Address field is valid!</div> -->
+                               <!-- <div class="invalid-feedback">Address field cannot be blank!</div> -->
+                            </div>
+
+                            <div class="col-md-12">
+                               <input class="form-control" type="password" name="password" placeholder="Password" required>
+                               <!-- <div class="valid-feedback">Password field is valid!</div> -->
+                               <!-- <div class="invalid-feedback">Password field cannot be blank!</div> -->
+                            </div>
+
+                            <div class="col-md-12">
+                               <input class="form-control" type="password" name="confirm_password" placeholder="Confirm Password" required>
+                               <!-- <div class="valid-feedback">Password field is valid!</div> -->
+                               <!-- <div class="invalid-feedback">Password field cannot be blank!</div> -->
+                            </div><br>
                   
-                
 
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button><br>
-                  <?= $this->Html->link("Add User", ['prefix'=>false,'controller'=>'Carusers','action' => 'add']) ?><br>
-                 <?= $this->Html->link("Admin Login", ['prefix'=>'Admin','controller'=>'Carusers','action' => 'login']) ?>
-                 <?= $this->Html->link("User Login", ['prefix'=>false,'controller'=>'Carusers','action' => 'login']) ?>
+                            <div class="form-button mt-3">
+                                <button id="submit" type="submit" class="btn btn-primary">Register</button><br>
+                                <?= $this->Html->link(__('User Login'), ['prefix' => false, 'controller' => 'Carusers', 'action' => 'login']) ?><br>
 
+                        <?= $this->Form->end() ?>
+
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
-
-              
             </div>
-            <?= $this->Form->end() ?>
-          </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/add.js"></script>
+
+       <!-- Mainly scripts -->
+       <script src="/cars/js/jquery-3.1.1.min.js"></script>
+<script src="/cars/js/popper.min.js"></script>
+    <script src="/cars/js/bootstrap.js"></script>
+<script src="/cars/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="/cars/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="/cars/js/inspinia.js"></script>
+<script src="/cars/js/plugins/pace/pace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+
+<?php echo $this->Html->script("validation");?>
+
+

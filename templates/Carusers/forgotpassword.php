@@ -1,21 +1,51 @@
-<div class="row">
-    <div class="col-md-4 offset-md-4">
-        <?php echo $this->Flash->render() ?>
-        <div class="card">
-            <h3 class="card-header">Forget Password</h3>
-            <div class="card-body">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="/css/add.css">
+
+<!------ Include the above in your HEAD tag ---------->
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ <div class="form-gap"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="text-center">
+                  <h3><i class="fa fa-lock fa-4x"></i></h3>
+                  <h2 class="text-center">Forgot Password?</h2>
+                  <p>You can reset your password here.</p>
                 <?php echo $this->Form->create() ?>
-                <div class="form-group">
-                    <?php echo $this->Form->control('email', ['class' => 'form-control']) ?>
+
+                  <div class="panel-body">
+    
+                    <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+    
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                          <input id="email" name="email" placeholder="email address" class="form-control"  type="email">
+                          
+
+                        </div>
+                      </div>
+                      <div class="form-group">
+                     <?php echo $this->Form->button('Get New Password', ['class' => 'btn btn-lg btn-primary btn-block']);?>
+                      </div>
+                      <?php echo $this->Html->link('Login', ['prefix' => false, 'controller' => 'Carusers', 'action' => 'login'], ['class' => 'btn btn-primry']);?>
+
+                      
+                      <!-- <input type="hidden" class="hide" name="token" id="token" value="">  -->
+                    </form>
+               <?php echo $this->Form->end();?>
+
+    
+                  </div>
                 </div>
-
-                <?php
-                echo $this->Form->button('Get New Password', ['class' => 'btn btn-primry']);
-                echo $this->Html->link('Login', ['prefix' => false, 'controller' => 'Carusers', 'action' => 'login'], ['class' => 'btn btn-primry']);
-                echo $this->Form->end();
-                ?>
-
+              </div>
             </div>
-        </div>
-    </div>
+          </div>
+	</div>
 </div>
+

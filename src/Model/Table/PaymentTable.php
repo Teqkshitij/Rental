@@ -43,9 +43,7 @@ class PaymentTable extends Table
         $this->setDisplayField('name');
         $this->setPrimaryKey('id');
 
-        $this->hasOne('Users', [
-            'foreignKey' => 'user_id',
-        ]);
+        $this->hasOne('Users');
     }
 
     /**
@@ -101,10 +99,4 @@ class PaymentTable extends Table
      * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
      * @return \Cake\ORM\RulesChecker
      */
-    public function buildRules(RulesChecker $rules): RulesChecker
-    {
-        $rules->add($rules->existsIn('user_id', 'Users'), ['errorField' => 'user_id']);
-
-        return $rules;
-    }
 }
